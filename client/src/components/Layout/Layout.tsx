@@ -11,7 +11,12 @@ interface props {
     content? : React.ReactNode
 }
 
-const Layout : FC<props> = ({pageTitle, content}) => {
+const Layout : FC<props> = (
+    {
+        pageTitle,
+        content
+    }
+    ) => {
     const cookies = new Cookies();
     let userTheme = parseInt(cookies.get('theme'));
     const theme = getThemedStyles(userTheme, styles);

@@ -1,0 +1,60 @@
+@import "./src/styles/themes";
+
+.page {
+  .update {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+
+    input, button {
+      padding: 10px;
+      outline: none;
+      border-radius: 6px;
+      transition: .15s ease-in-out;
+    }
+
+    button {
+      margin: 0 15px;
+      box-shadow: inset 0px -5px 0px -1px rgba(0, 0, 0, 0.3);
+      border: unset;
+      transition: .05s ease;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  &.light {
+    .update {
+      input {
+        background: $lightBackground;
+        border: 2px solid $lightLines;
+        color: black;
+      }
+
+      button {
+        background: $lightLines;
+        color: black;
+      }
+    }
+  }
+
+  &.dark {
+    .update {
+      input {
+        background: $darkBackground;
+        border: 2px solid $darkLines;
+        color: white;
+      }
+
+      button {
+        background: $darkLines;
+        color: white;
+      }
+    }
+  }
+}

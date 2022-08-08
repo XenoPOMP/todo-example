@@ -11,6 +11,7 @@
     width: 100%;
     max-width: 900px;
     border-radius: $radius $radius 0 0;
+    padding: $paddings;
   }
 
   &.light {
