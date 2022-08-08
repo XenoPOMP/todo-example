@@ -1,0 +1,36 @@
+header {
+  width: 100%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 100%;
+    max-width: 900px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      user-select: none;
+    }
+
+    select {
+      padding: 5px;
+      outline: none;
+      border-radius: 4px;
+      user-select: none;
+    }
+  }
+
+  &.light {
+
+  }
+
+  &.dark {
+
+  }
+}
