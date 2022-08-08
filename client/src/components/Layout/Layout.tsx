@@ -4,18 +4,24 @@ import MetaTitle from "../MetaTitle/MetaTitle";
 import styles from "./Layout.module.scss";
 import getThemedStyles from "./getThemedStyles";
 import Header from "../Header/Header";
+import Cookies from "universal-cookie";
 
 interface props {
     pageTitle : string
+    content? : React.ReactNode
 }
 
-const Layout : FC<props> = ({pageTitle}) => {
-    const userTheme = 0;
+const Layout : FC<props> = ({pageTitle, content}) => {
+    const cookies = new Cookies();
+    let userTheme = parseInt(cookies.get('theme'));
     const theme = getThemedStyles(userTheme, styles);
 
     return (
         <div className={`${styles.layout} ${theme}`}>
             <Header pageTitle={pageTitle} />
+            <div className={styles.content}>
+                {content}
+            </div>
         </div>
     );
 };
