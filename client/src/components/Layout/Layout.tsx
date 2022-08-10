@@ -5,6 +5,7 @@ import styles from "./Layout.module.scss";
 import getThemedStyles from "./getThemedStyles";
 import Header from "../Header/Header";
 import Cookies from "universal-cookie";
+import setDefaultCookie from "../Header/setDefaultCookie";
 
 interface props {
     pageTitle : string

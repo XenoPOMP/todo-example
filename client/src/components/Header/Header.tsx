@@ -12,12 +12,8 @@ interface props {
 
 const Header : FC<props> = ({pageTitle}) => {
     const cookies = new Cookies();
-    const cookieObj = cookies.getAll();
     let userTheme = parseInt(cookies.get('theme'));
     const theme = getThemedStyles(userTheme, styles);
-
-    (Object.keys(cookieObj).length === 0) ? setDefaultCookie()
-        : console.log('Cookies already exist');
 
     return (
         <header className={theme}>
