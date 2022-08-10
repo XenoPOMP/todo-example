@@ -5,7 +5,8 @@ import styles from "./MainPage.module.scss";
 import Cookies from "universal-cookie";
 import getThemedStyles from "../Layout/getThemedStyles";
 import Card from "../UI/Card/Card";
-import getAllCards from "./getAllCards";
+import Axios from "axios";
+import card from "../UI/Card/Card";
 
 const MainPage = () => {
     const cookies = new Cookies();
@@ -15,13 +16,16 @@ const MainPage = () => {
     const [input, setInput] = useState('');
 
     const addNewTodo = () => {
-        const todos = document.getElementById('todos');
-
-        if (todos) todos.innerHTML += `Todo added: ${input}`;
+        Axios.post("http://localhost:4200/api/cards/addNew", {reqText: input})
+            .then((response) => console.log(''));
     }
 
-    const [allCards, setAllCards] = useState([]);
-    getAllCards().then((data) => setAllCards(data));
+    const [cardList, setCardList] = useState([]);
+    Axios.get("http://localhost:4200/api/cards/getAll")
+        .then((response) => setCardList(response.data));
+
+    // @ts-ignore
+    let extractedList = cardList.map((card) => <Card number={card.card_id} content={card.card_text} userInput={input} />);
 
     return (
         <Layout
@@ -34,13 +38,11 @@ const MainPage = () => {
                             placeholder={'Введи текст'}
                             onChange={(e) => setInput(e.target.value)}
                         />
-                        <button onClick={addNewTodo}>Добавить</button>
+                        <button onClick={addNewTodo} className={(input === "") ? styles.blocked : ''}>Добавить</button>
                     </div>
 
                     <div id={'todos'}>
-                        <Card number={1} />
-                        <Card number={2} />
-                        <Card number={3} />
+                        {extractedList}
                     </div>
                 </div>
             }

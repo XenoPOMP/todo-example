@@ -42,6 +42,11 @@
       &:hover {
         cursor: pointer;
       }
+
+      &.blocked {
+        opacity: .5;
+        pointer-events: none;
+      }
     }
   }
 

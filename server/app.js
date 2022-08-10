@@ -40,6 +40,25 @@ app.get(`${prefix}/cards/getAll`, (req, res) => {
     })
 });
 
+app.post(`${prefix}/cards/addNew`, (req, res) => {
+    const reqText = req.body.reqText;
+    const query = "INSERT INTO todo_app.cards (card_text) VALUES (?)";
+    db.query(query, [reqText], (err, result) => res.send(result));
+});
+
+app.post(`${prefix}/cards/delete`, (req, res) => {
+    const reqId = req.body.reqId;
+    const query = "DELETE FROM cards WHERE `cards`.`card_id` = (?)";
+    db.query(query, [reqId], (err, result) => res.send(result));
+});
+
+app.post(`${prefix}/cards/update`, (req, res) => {
+    const reqId = req.body.reqId;
+    const reqText = req.body.reqText;
+    const query = "UPDATE `cards` SET `card_text` = (?) WHERE `cards`.`card_id` = (?)";
+    db.query(query, [reqText, reqId], (err, result) => res.send(result));
+});
+
 // Start listening app at port 3001
 app.listen(config.app_port, () => {
     console.log(`Server running on port ${config.app_port}`);

@@ -17,6 +17,7 @@
       box-shadow: inset 0px -5px 0px -1px rgba(0, 0, 0, 0.3);
       border: unset;
       transition: .05s ease;
+      user-select: none;
 
       &:hover {
         cursor: pointer;
@@ -24,6 +25,11 @@
 
       &:active {
         transform: translateY(1px);
+      }
+
+      &.blocked {
+        opacity: .5;
+        pointer-events: none;
       }
     }
   }
