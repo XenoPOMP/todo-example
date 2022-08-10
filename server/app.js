@@ -25,16 +25,19 @@ app.use(express.json());
 
 // Sample POST request
 // app.post('path', (req, res) => {
-//     const reqUsername = req.body.reqUsername;
+//     functions reqUsername = req.body.reqUsername;
 
-//     const query = "SELECT users.user_id FROM xenochat.users WHERE users.username = (?)";
+//     functions query = "SELECT users.user_id FROM xenochat.users WHERE users.username = (?)";
 //     db.query(query, [reqUsername], (err, result) => {
 //         res.send(result);
 //     });
 // });
 
 app.get(`${prefix}/cards/getAll`, (req, res) => {
-    res.send([{"post_id" : 1, "post_text" : "Lorem"}, {"post_id" : 2, "post_text" : "ispum"}])
+    const query = "SELECT * FROM todo_app.cards";
+    db.query(query, (err, result) => {
+        res.send(result);
+    })
 });
 
 // Start listening app at port 3001

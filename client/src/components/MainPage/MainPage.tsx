@@ -5,6 +5,7 @@ import styles from "./MainPage.module.scss";
 import Cookies from "universal-cookie";
 import getThemedStyles from "../Layout/getThemedStyles";
 import Card from "../UI/Card/Card";
+import getAllCards from "./getAllCards";
 
 const MainPage = () => {
     const cookies = new Cookies();
@@ -18,6 +19,9 @@ const MainPage = () => {
 
         if (todos) todos.innerHTML += `Todo added: ${input}`;
     }
+
+    const [allCards, setAllCards] = useState([]);
+    getAllCards().then((data) => setAllCards(data));
 
     return (
         <Layout
