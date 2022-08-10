@@ -6,13 +6,11 @@ import getThemedStyles from "../../Layout/getThemedStyles";
 
 interface props {
     number : number
-    content : string
 }
 
 const Card : FC<props> = (
     {
-        number,
-        content
+        number
     }
 ) => {
     const cookies = new Cookies();
@@ -26,7 +24,7 @@ const Card : FC<props> = (
             </div>
 
             <div className={styles.content}>
-                {content}
+
             </div>
 
             <div className={styles.buttonGrid}>
