@@ -2,5 +2,6 @@
   "hostname": "localhost",
   "user": "root",
   "password": "",
-  "database": "todo_app"
+  "database": "todo_app",
+  "app_port" : 4200
 }

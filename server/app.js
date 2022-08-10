@@ -33,6 +33,6 @@ app.use(express.json());
 // });
 
 // Start listening app at port 3001
-app.listen(3001, () => {
-    console.log('Server running on port 3001');
+app.listen(config.app_port, () => {
+    console.log(`Server running on port ${config.app_port}`);
 });
