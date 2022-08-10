@@ -4,6 +4,7 @@ import Layout from "../Layout/Layout";
 import styles from "./MainPage.module.scss";
 import Cookies from "universal-cookie";
 import getThemedStyles from "../Layout/getThemedStyles";
+import Card from "../UI/Card/Card";
 
 const MainPage = () => {
     const cookies = new Cookies();
@@ -15,7 +16,7 @@ const MainPage = () => {
     const addNewTodo = () => {
         const todos = document.getElementById('todos');
 
-        if (todos) todos.innerText += `Todo added: ${input}`;
+        if (todos) todos.innerHTML += `Todo added: ${input}`;
     }
 
     return (
@@ -32,7 +33,9 @@ const MainPage = () => {
                         <button onClick={addNewTodo}>Добавить</button>
                     </div>
 
-                    <div id={'todos'}></div>
+                    <div id={'todos'}>
+                        <Card number={1} content={'lorem'} />
+                    </div>
                 </div>
             }
         />

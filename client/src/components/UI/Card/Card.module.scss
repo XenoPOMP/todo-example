@@ -1,0 +1,106 @@
+@import "./src/styles/themes";
+
+.card {
+  margin: 15px 0;
+  width: 100%;
+  height: 150px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 50px 1fr 150px;
+  overflow: hidden;
+
+  .number {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .buttonGrid {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+
+    .button {
+      width: 100%;
+      height: 100%;
+      transition: .15s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.light {
+    border: 2px solid $lightLines;
+
+    .number, .content {
+      border-right: 2px solid $lightLines;
+    }
+
+    .buttonGrid {
+      .button {
+        &.update {
+          color: #11bd24;
+
+          &:hover {
+            background: #08ff00;
+            color: black;
+          }
+        }
+
+        &.delete {
+          color: #ff0000;
+
+          &:hover {
+            background: #ff0000;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  &.dark {
+    border: 2px solid $darkLines;
+
+    .number, .content {
+      border-right: 2px solid $darkLines;
+      color: white;
+    }
+
+    .buttonGrid {
+      .button {
+        &.update {
+          color: #08ff00;
+
+          &:hover {
+            background: #08ff00;
+            color: black;
+          }
+        }
+
+        &.delete {
+          color: #ff0000;
+
+          &:hover {
+            background: #ff0000;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
