@@ -34,7 +34,9 @@ const MainPage = () => {
                     </div>
 
                     <div id={'todos'}>
-                        <Card number={1} content={'lorem'} />
+                        <Card number={1} />
+                        <Card number={2} />
+                        <Card number={3} />
                     </div>
                 </div>
             }
