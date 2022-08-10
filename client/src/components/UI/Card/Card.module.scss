@@ -18,6 +18,10 @@
     font-size: 1.25em;
     font-weight: bold;
     user-select: none;
+
+    &.fourDigits { font-size: 1.1em; }
+    &.fiveDigits { font-size: .9em; }
+    &.sixDigits { font-size: .7em; }
   }
 
   .content {
@@ -44,7 +48,7 @@
       }
 
       &.blocked {
-        opacity: .5;
+        opacity: .25;
         pointer-events: none;
       }
     }

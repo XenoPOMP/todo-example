@@ -32,9 +32,17 @@ const Card : FC<props> = (
             .then((response) => console.log(''));
     }
 
+    const getNumberScale = () => {
+        if (number >= 1000   && number <= 9999) return styles.fourDigits;
+        if (number >= 10000  && number <= 99999) return styles.fiveDigits;
+        if (number >= 100000 && number <= 999999) return styles.sixDigits;
+
+        return '';
+    }
+
     return (
         <div className={`${styles.card} ${theme}`}>
-            <div className={styles.number}>
+            <div className={`${styles.number} ${getNumberScale()}`}>
                 {number}
             </div>
 
