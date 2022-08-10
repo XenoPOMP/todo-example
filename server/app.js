@@ -7,6 +7,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+const prefix = `/api`;
 // MySQL Database
 const mysql = require('mysql');
 const config = require('./config.json');
@@ -31,6 +32,10 @@ app.use(express.json());
 //         res.send(result);
 //     });
 // });
+
+app.get(`${prefix}/cards/getAll`, (req, res) => {
+    res.send([{"post_id" : 1, "post_text" : "Lorem"}, {"post_id" : 2, "post_text" : "ispum"}])
+});
 
 // Start listening app at port 3001
 app.listen(config.app_port, () => {
